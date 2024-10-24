@@ -137,9 +137,13 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Importer.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MyWindow.cpp" />
     <ClCompile Include="Primitivos.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="UIDGen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,8 +157,12 @@
     <ClInclude Include="Defs.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Importer.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="MyWindow.h" />
     <ClInclude Include="Primitivos.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="UIDGen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

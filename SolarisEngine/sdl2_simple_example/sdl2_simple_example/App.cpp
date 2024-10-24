@@ -148,6 +148,8 @@ bool App::LoadConfig()
 
     INIT_openGL();
 
+    importedObject = importer->Importar("./Assets/c.fbx");
+
 
 
     return true;
@@ -181,6 +183,18 @@ bool App::DoUpdate()
     cameraEditor->Update();
     CubeImmediateMode cube;
     cube.draw();
+
+    if (importedObject) {
+        importedObject->Draw();
+
+        GLenum err;
+        while ((err = glGetError()) != GL_NO_ERROR) {
+            std::cerr << "OpenGL error: " << err << std::endl;
+        }
+    }
+    else {
+        std::cerr << "El objeto importado es nulo." << std::endl;
+    }
 
     return true;
 }
@@ -228,6 +242,8 @@ bool App::INIT_openGL() {
     }
 
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glClearColor(0.5, 0.5, 0.5, 1.0);
     return true;
 }

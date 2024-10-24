@@ -1,8 +1,12 @@
 #include "Component_Mesh.h"
 #include <iostream>
 
-Component_Mesh::Component_Mesh(std::shared_ptr<GameObject> containerGO)
-    : Component(containerGO, ComponentType::Mesh) {}
+Component_Mesh::Component_Mesh(std::shared_ptr<GameObject> containerGO, std::shared_ptr<Mesh> mesh)
+    : Component(containerGO, ComponentType::Mesh), // Asegúrate de pasar el tipo correcto aquí
+    mesh(mesh) {
+    // Inicialización adicional si es necesaria
+}
+
 
 Component_Mesh::~Component_Mesh() {}
 
@@ -21,7 +25,18 @@ void Component_Mesh::Update(double dt) {
 }
 
 void Component_Mesh::DrawComponent() {
-    // Lógica para dibujar el mesh
+    if (!enabled || !mesh) {
+        std::cerr << "El componente no está habilitado o el mesh es nulo." << std::endl;
+        return;
+    }
+
+    //// Aplicar material si está presente
+    //if (mesh->GetMaterial()) {
+    //    mesh->GetMaterial()->Apply(); // Asegúrate de que esta función esté implementada
+    //}
+
+    // Dibujar el mesh
+    mesh->Draw(); // Asumiendo que tienes un método Draw() en tu clase Mesh
 }
 
 void Component_Mesh::LoadMesh(aiMesh* ai_mesh) {

@@ -121,6 +121,8 @@ private:
 	std::string gameTitle;
 	std::string organization;
 
+	std::shared_ptr<GameObject> importedObject;
+
 	//List<Module *> modules;	
 	
 	//uint frames;
